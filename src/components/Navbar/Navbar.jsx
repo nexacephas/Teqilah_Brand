@@ -36,10 +36,10 @@ const Navbar = () => {
 
 
         <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-        <li><Link to="/">Home</Link></li>
+        <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
 
-          <li><a href="#about">About</a></li>
-<li className="dropdown" ref={dropdownRef}>
+          <li><a href="#about" onClick={() => setIsOpen(false)}>About</a></li>
+<li className="dropdown" ref={dropdownRef} onClick={() => setIsOpen(false)}>
   <button onClick={toggleDropdown} className="dropdown-toggle">Shop</button>
 
   <AnimatePresence>
@@ -51,9 +51,9 @@ const Navbar = () => {
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.25 }}
       >
-<li><Link to="/shop/all"><FiBox /> All Products</Link></li>
-<li><Link to="/shop/new"><FiTag /> New Arrivals</Link></li>
-<li><Link to="/shop/best-sellers"><FiStar /> Best Sellers</Link></li>
+<li><Link to="/shop/all" onClick={() => setIsOpen(false)}><FiBox /> All Products</Link></li>
+<li><Link to="/shop/new" onClick={() => setIsOpen(false)}><FiTag /> New Arrivals</Link></li>
+<li><Link to="/shop/best-sellers" onClick={() => setIsOpen(false)}><FiStar /> Best Sellers</Link></li>
 
       </motion.ul>
     )}
@@ -61,12 +61,12 @@ const Navbar = () => {
 </li>
 
 
-          <li><a href="#services">Services</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><Link to="/blog">Blog</Link></li>
+          <li><a href="#services" onClick={() => setIsOpen(false)}>Services</a></li>
+          <li><a href="#testimonials" onClick={() => setIsOpen(false)}>Testimonials</a></li>
+          <li><a href="#gallery" onClick={() => setIsOpen(false)}>Gallery</a></li>
+          <li><Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link></li>
 
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact" onClick={() => setIsOpen(false)}>Contact</a></li>
 
           <AnimatePresence>
             {isOpen && (
@@ -77,25 +77,25 @@ const Navbar = () => {
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3 }}
               >
-                <a href="#account" className="icon-link"><FiUser /> Account</a>
+                <a href="#account" className="icon-link" onClick={() => setIsOpen(false)}><FiUser /> Account</a>
 
                 <div className="icon-badge">
-                  <a href="#wishlist" className="icon-link">
+                  <a href="#wishlist" className="icon-link" onClick={() => setIsOpen(false)}>
                     <FiHeart /> Wishlist
                   </a>
-                  {wishlistCount > 0 && <span className="badge">{wishlistCount}</span>}
+                  {wishlistCount > 0 && <span className="badge" onClick={() => setIsOpen(false)}>{wishlistCount}</span>}
                 </div>
 
                 <div className="icon-badge">
-                  <a href="#cart" className="icon-link">
+                  <a href="#cart" className="icon-link" onClick={() => setIsOpen(false)}>
                     <FiShoppingCart /> Cart
                   </a>
-                  {cartCount > 0 && <span className="badge">{cartCount}</span>}
+                  {cartCount > 0 && <span className="badge" onClick={() => setIsOpen(false)}>{cartCount}</span>}
                 </div>
 
-                <a href="tel:+234000000000" className="icon-link"><FiPhone /> Call</a>
+                <a href="tel:+234000000000" className="icon-link" onClick={() => setIsOpen(false)}><FiPhone /> Call</a>
 
-                <button onClick={() => setShowAuthModal(true)} className="auth-btn">
+                <button onClick={() => setShowAuthModal(true)} className="auth-btn" onClick={() => setIsOpen(false)}>
                   {isLoggedIn ? 'Logout' : 'Login'}
                 </button>
               </motion.div>
