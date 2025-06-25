@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="container nav-container">
           <div className="logo" data-aos="fade-right">
-            <Link to="/">
+            <Link to="/" onClick={() => setIsOpen(false)}>
               <img src={logo} alt="Brand Logo" />
             </Link>
           </div>
