@@ -95,7 +95,7 @@ const Navbar = () => {
 
                 <a href="tel:+234000000000" className="icon-link" onClick={() => setIsOpen(false)}><FiPhone /> Call</a>
 
-                <button onClick={() => setShowAuthModal(true)} className="auth-btn" onClick={() => setIsOpen(false)}>
+                <button onClick={() => setShowAuthModal(true)} className="auth-btn" >
                   {isLoggedIn ? 'Logout' : 'Login'}
                 </button>
               </motion.div>
