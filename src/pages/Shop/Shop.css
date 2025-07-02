@@ -1,23 +1,68 @@
+/* src/pages/Shop/Shop.css */
+.shop-section {
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
 .shop-tabs {
   display: flex;
-  gap: 1rem;
   justify-content: center;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .shop-tabs button {
   padding: 0.6rem 1.2rem;
-  border: none;
-  background: #f5f5f5;
-  color: #333;
+  background: transparent;
+  border: 1px solid #333;
   cursor: pointer;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.shop-tabs button.active,
-.shop-tabs button:hover {
-  background: var(--color-primary);
+.shop-tabs .active {
+  background: #333;
   color: #fff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #111;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-weight: bold;
 }

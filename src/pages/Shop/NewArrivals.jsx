@@ -1,13 +1,23 @@
-import React from 'react';
-import { products } from '../../data/products';
+import React, { useEffect, useState } from 'react';
 import ProductCard from '../../components/ProductCard';
+import axios from 'axios';
 
 const NewArrivals = () => {
-  const newProducts = products.filter(item => item.category === 'New');
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/products')
+      .then(res => {
+        const filtered = res.data.filter(p => p.category === 'New');
+        setProducts(filtered);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
   return (
     <div className="product-grid">
-      {newProducts.map((item) => (
-        <ProductCard key={item.id} product={item} />
+      {products.map(product => (
+        <ProductCard key={product._id} product={product} />
       ))}
     </div>
   );

@@ -1,0 +1,169 @@
+.payment-page {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.payment-page h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.payment-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.payment-form {
+  flex: 1 1 55%;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.summary-box {
+  flex: 1 1 40%;
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.radio-group input {
+  margin-right: 0.6rem;
+}
+
+.pay-btn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.pay-btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.paystack-logo {
+  margin-top: 1.5rem;
+  max-width: 120px;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+  .payment-content {
+    flex-direction: column;
+  }
+}
+.pay-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.3s ease;
+}
+
+.pay-btn[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #fff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.payment-methods .method-grid {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.method-card {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #eee;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.method-card img {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 0.5rem;
+}
+
+.method-card.selected {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(106, 75, 195, 0.3);
+}
+
+.method-card span {
+  display: block;
+  font-weight: 500;
+  color: var(--color-heading);
+}
+
+.method-card .badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.7rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 6px;
+}

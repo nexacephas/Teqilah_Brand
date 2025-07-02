@@ -1,0 +1,150 @@
+.success-page {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.success-icon {
+  font-size: 4rem;
+  color: #2ecc71;
+  margin-bottom: 1rem;
+}
+
+.success-page h2 {
+  font-size: 2rem;
+  color: var(--color-heading);
+  margin-bottom: 0.5rem;
+}
+
+.success-page p {
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.order-summary {
+  margin-top: 2rem;
+  background-color: #f8f8f8;
+  padding: 1.5rem;
+  border-radius: var(--radius-sm);
+  text-align: left;
+}
+
+.order-summary h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: var(--color-heading);
+}
+
+.order-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-summary li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  color: #444;
+  font-size: 1rem;
+}
+
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.success-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.fallback {
+  text-align: center;
+  margin: 5rem auto;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 500px) {
+  .success-page {
+    padding: 1.5rem;
+  }
+
+  .success-actions {
+    flex-direction: column;
+  }
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .success-page, .success-page * {
+    visibility: visible;
+  }
+  .success-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .success-actions {
+    display: none;
+  }
+}

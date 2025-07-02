@@ -1,54 +1,56 @@
-/* Global styles */ 
-/* ===== Global CSS Variables ===== */
+/* =========================
+   Global CSS Variables
+========================= */
 :root {
+  /* Font */
   --font-primary: 'Poppins', sans-serif;
 
-  /* Color palette */
-  --color-primary: #5A4FCF;
-  --color-accent: #FFB400;
-  --color-text: #1A1A1A;
-  --color-muted: #555;
-  --color-bg: #FAFAFA;
+  /* Colors */
+  --color-primary: #0072ff;
+  --color-primary-dark: #2b82ec;
+  --color-accent: #0084ff;
+  --color-bg: #f9f9f9;
   --color-white: #ffffff;
+  --color-heading: #222;
+  --color-text: #555;
+  --color-muted: #888;
 
-  /* Sizing & Layout */
-  --max-width: 1200px;
-  --section-padding: 4rem 1rem;
+  /* Shadows */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
 
   /* Borders & Radius */
   --radius-sm: 6px;
   --radius-md: 12px;
-  --radius-lg: 24px;
+  --radius-lg: 20px;
 
-  /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
-
-
-    --color-bg: #f9f9f9;
-  --color-heading: #222;
-  --color-text: #555;
-  --color-muted: #888;
-  --color-primary: #6a4bc3;
-
-  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 25px rgba(0, 0, 0, 0.12);
+  /* Layout */
+  --max-width: 1200px;
+  --section-padding: 4rem 1rem;
 }
 
-/* ===== Global Reset and Base Styles ===== */
+/* =========================
+   Global Reset & Base Styles
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-primary);
   background-color: var(--color-bg);
   color: var(--color-text);
-  line-height: 1.6;
   font-size: 16px;
+  line-height: 1.7;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 img {
@@ -57,8 +59,13 @@ img {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
 }
 
 ul {
@@ -67,11 +74,15 @@ ul {
 
 button {
   cursor: pointer;
-  border: none;
-  outline: none;
   font-family: inherit;
+  border: none;
+  background: none;
+  transition: all 0.3s ease;
 }
 
+/* =========================
+   Layout Utilities
+========================= */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -81,9 +92,85 @@ button {
 .section {
   padding: var(--section-padding);
 }
-/* ==== Custom Scrollbar ==== */
 
-/* For Chrome, Edge, Safari */
+/* =========================
+   Typography Helpers
+========================= */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--color-heading);
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  text-align: center;
+  color: var(--color-muted);
+  margin-bottom: 3rem;
+}
+
+/* =========================
+   Buttons
+========================= */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* =========================
+   Forms
+========================= */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius-sm);
+  background-color: #fff;
+  color: var(--color-text);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(106, 75, 195, 0.15);
+}
+
+/* =========================
+   Scrollbar Styles
+========================= */
+/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -93,13 +180,14 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   border-radius: 10px;
   border: 2px solid var(--color-bg);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #4a3ebf; /* Darker primary on hover */
+  background: var(--color-primary-dark);
 }
 
 /* Firefox */
@@ -107,7 +195,20 @@ button {
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) var(--color-bg);
 }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--color-primary), #4a3ebf);
-  box-shadow: 0 0 5px var(--color-primary);
+/* =========================
+   Smooth Element Transitions
+========================= */
+.section,
+.container
+ {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.animate,
+.container.animate,
+img.animate {
+  opacity: 1;
+  transform: translateY(0);
 }

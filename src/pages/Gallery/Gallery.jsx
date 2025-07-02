@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Gallery.css';
 import GalleryModal from '../../components/GalleryPreview/GalleryModal';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import layer1 from '../../assets/layer1.jpg';
 import layer2 from '../../assets/layer2.jpg';
@@ -50,24 +50,32 @@ const Gallery = () => {
         ))}
       </div>
 
-      <div className="gallery-grid">
-        {visibleImages.map((img, i) => (
-          <motion.figure
-            key={i}
-            className="gallery-card"
-            onClick={() => setSelectedImage(img)}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-          >
-            <img src={img.src} alt={img.tag} loading="lazy" />
-            <figcaption className="overlay-caption">{img.tag}</figcaption>
-          </motion.figure>
-        ))}
-      </div>
+      <motion.div layout className="gallery-grid">
+        <AnimatePresence>
+          {visibleImages.map((img, i) => (
+            <motion.figure
+              key={img.src + i}
+              className="gallery-card"
+              onClick={() => setSelectedImage(img)}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img src={img.src} alt={img.tag} loading="lazy" />
+              <span className="tag-badge">{img.tag}</span>
+            </motion.figure>
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
       {visibleCount < filtered.length && (
         <div className="load-more-wrap">
-          <button onClick={() => setVisibleCount((prev) => prev + 6)} className="btn-secondary">
+          <button
+            onClick={() => setVisibleCount((prev) => prev + 6)}
+            className="btn-secondary"
+          >
             Load More
           </button>
         </div>

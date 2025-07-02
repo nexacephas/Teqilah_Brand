@@ -1,0 +1,88 @@
+/* src/pages/Admin/Topbar.css */
+
+.admin-topbar {
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.notification-icon {
+  position: relative;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.notification-icon .dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  height: 8px;
+  width: 8px;
+  background-color: #ef4444;
+  border-radius: 50%;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dropdownn {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.8rem;
+  width: 140px;
+  text-align: left;
+  z-index: 999;
+}
+
+.dropdownn p {
+  margin: 0 0 0.6rem 0;
+  font-weight: 500;
+  color: #374151;
+}
+
+.dropdownn button {
+  background-color: #ef4444;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.dropdownn button:hover {
+  background-color: #dc2626;
+}

@@ -1,155 +1,227 @@
-/* Hero.css */
-
+/* ===== Hero Section ===== */
 .hero-section {
   position: relative;
-  padding: 5rem 1rem;
-  background: var(--color-bg);
+  padding: 6rem 2rem 4rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d0d0d, #1e1e1e);
   overflow: hidden;
+  z-index: 1;
+  color: #fff;
 }
 
+/* Glass effect layer */
+.glass-overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0;
+  z-index: 0;
+}
+
+/* ===== Layout ===== */
 .hero-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 4rem;
+  max-width: 1280px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
   flex-wrap: wrap;
 }
 
 .hero-left {
-  flex: 1;
-  max-width: 600px;
+  flex: 1 1 500px;
+  padding: 1rem;
 }
 
 .hero-left h1 {
   font-size: 3rem;
+  font-weight: 800;
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
-.hero-left h1 span {
-  color: var(--color-primary);
+.gradient-text {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-left p {
   font-size: 1.1rem;
-  color: var(--color-muted);
+  color: #ccc;
   margin-bottom: 2rem;
+  max-width: 500px;
 }
 
 .hero-buttons {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: none;
 }
 
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn-primary:hover {
-  background: #4a3ebf;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: var(--color-primary);
-  padding: 0.75rem 1.5rem;
-  border: 2px solid var(--color-primary);
-  border-radius: var(--radius-md);
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn-secondary:hover {
-  background: var(--color-primary);
+  background-color: #0072ff;
   color: white;
 }
 
-/* Right image stack */
+.btn-primary:hover {
+  background-color: #005ad6;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid #0072ff;
+  color: #0072ff;
+}
+
+.btn-secondary:hover {
+  background-color: #0072ff;
+  color: white;
+}
+
+/* ===== Right Side Image Stack ===== */
 .hero-right {
-  flex: 1;
+  flex: 1 1 400px;
   position: relative;
-  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1;
 }
 
-.image-stack {
-  position: relative;
-  width: 100%;
-  height: 100%;
+.image-stack-wrapper {
+  max-width: 100%;
+  animation: floatImage 6s ease-in-out infinite;
 }
 
-.layer-img {
-  position: absolute;
-  width: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  transition: 
-    transform 1.2s ease-in-out, 
-    z-index 0.9s ease-in-out, 
-    opacity 0.8s ease-in-out;
-  opacity: 0.95;
+/* Optional keyframe override if needed */
+@keyframes floatImage {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
-.layer-img:hover {
-  transform: scale(1.1) rotate(2deg);
-  opacity: 1;
-  z-index: 99;
-}
-
-/* Rightward spread with vertical spacing */
-.layer-1 { top: 0; left: 0; z-index: 1; }
-.layer-2 { top: 40px; left: 60px; z-index: 2; }
-.layer-3 { top: 80px; left: 120px; z-index: 3; }
-.layer-4 { top: 120px; left: 180px; z-index: 4; }
-.layer-5 { top: 160px; left: 240px; z-index: 5; }
-.layer-6 { top: 200px; left: 300px; z-index: 6; }
-
-/* Scroll Cue */
+/* ===== Scroll Cue ===== */
 .scroll-cue {
   position: absolute;
-  bottom: 20px;
+  bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   height: 40px;
-  width: 25px;
-  border: 2px solid var(--color-primary);
-  border-radius: 20px;
+  width: 20px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4px;
 }
 
-.scroll-cue span {
-  display: block;
+.scroll-dot {
   height: 8px;
   width: 8px;
-  background: var(--color-primary);
+  background-color: #fff;
   border-radius: 50%;
-  margin: 4px auto;
-  animation: scroll 1.5s infinite;
+  animation: scrollBounce 1.5s infinite ease-in-out;
 }
 
-@keyframes scroll {
-  0% { transform: translateY(0); opacity: 1; }
-  50% { transform: translateY(10px); opacity: 0.4; }
-  100% { transform: translateY(0); opacity: 1; }
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ===== Responsive ===== */
+@media screen and (max-width: 768px) {
   .hero-content {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .hero-right {
-    margin-top: 3rem;
-    min-height: 300px;
+  .hero-left h1 {
+    font-size: 2.2rem;
   }
 
+  .hero-left p {
+    font-size: 1rem;
+    margin: 0 auto 1.5rem;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .scroll-cue {
+    bottom: 1rem;
+  }
+}
+/* ===== Image Stack ===== */
+.image-stack {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100%;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.layer-img {
+  width: 120px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  background-color: #111;
+}
+
+/* Different rotate/position per image */
+.layer-1 { transform: rotate(-8deg) translateY(0); z-index: 2; }
+.layer-2 { transform: rotate(4deg) translateY(10px); z-index: 3; }
+.layer-3 { transform: rotate(-3deg) translateY(-8px); z-index: 4; }
+.layer-4 { transform: rotate(6deg) translateY(6px); z-index: 1; }
+.layer-5 { transform: rotate(-5deg) translateY(4px); z-index: 2; }
+.layer-6 { transform: rotate(3deg) translateY(-6px); z-index: 3; }
+
+.layer-img:hover {
+  box-shadow: 0 0 25px #0072ffaa, 0 0 10px #00c6ffaa;
+}
+
+/* ===== Responsive Stack Adjustment ===== */
+@media screen and (max-width: 768px) {
   .layer-img {
-    max-width: 150px;
+    width: 100px;
+    height: 140px;
+  }
+
+  .image-stack {
+    gap: 0.75rem;
   }
 }

@@ -1,0 +1,54 @@
+.step-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step .circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ccc;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.step.active .circle {
+  background: #5e17eb;
+}
+
+.step .label {
+  margin-left: 0.5rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.step.active .label {
+  color: #5e17eb;
+}
+
+.step .bar {
+  height: 4px;
+  width: 40px;
+  background: #ccc;
+  margin: 0 0.75rem;
+  border-radius: 2px;
+}
+
+.step.active ~ .step .bar {
+  background: #ccc;
+}
